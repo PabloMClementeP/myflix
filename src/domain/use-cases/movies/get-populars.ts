@@ -1,8 +1,8 @@
 import MoviesService from "../../../aplication/services/movies";
 
-async function getMoviesTrending() {
+async function getMoviesPopulars() {
   try {
-    const response = await MoviesService.getTrendingMovies();
+    const response = await MoviesService.getPopularMovies();
     if (response) return response;
     return null;
   } catch (error) {
@@ -10,4 +10,4 @@ async function getMoviesTrending() {
   }
 }
 
-export default getMoviesTrending;
+export default getMoviesPopulars;

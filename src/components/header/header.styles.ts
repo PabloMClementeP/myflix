@@ -4,13 +4,13 @@ export const HeaderWrapper = styled.div<{
   $positionY: number;
 }>`
   height: 68px;
-  background-color: rgb(20, 20, 20);
   display: flex;
   align-items: center;
   font-size: 1.2rem;
   padding: 0 4%;
   transition: background-color 0.4s;
-  z-index: 2;
+  z-index: 10;
+  background-color: transparent;
   position: sticky;
   top: 0;
   ${({ $positionY }) => {
@@ -18,7 +18,7 @@ export const HeaderWrapper = styled.div<{
       return `
       position: sticky;
       top: 0;
-      background-color: transparent;
+      background-color: rgb(20, 20, 20);
       `;
     }
   }}

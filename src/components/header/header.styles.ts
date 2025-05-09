@@ -10,7 +10,7 @@ export const HeaderWrapper = styled.div<{
   padding: 0 4%;
   transition: background-color 0.4s;
   z-index: 10;
-  background-color: transparent;
+  background-color: #141414;
   position: sticky;
   top: 0;
   ${({ $positionY }) => {
@@ -18,7 +18,7 @@ export const HeaderWrapper = styled.div<{
       return `
       position: sticky;
       top: 0;
-      background-color: rgb(20, 20, 20);
+      background-color: #141414;
       `;
     }
   }}

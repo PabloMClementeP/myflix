@@ -5,6 +5,7 @@ import RecomendedCard from "./components/recomended-card";
 import { GoChevronLeft } from "react-icons/go";
 import { GoChevronRight } from "react-icons/go";
 import { CardsWrapper, CarouselWrapper } from "./preview-carousel.styles";
+import getMoviesByGenre from "../../domain/use-cases/movies/get-by-genre";
 
 const PreviewCarousel = () => {
   const [moviesList, setMoviesList] = useState<Movie[] | null>(null);
@@ -13,7 +14,7 @@ const PreviewCarousel = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const res = await getMoviesNowPlaying();
+        const res = await getMoviesByGenre(27);
         if (!res) return;
         setMoviesList(res);
       } catch (error) {
@@ -23,15 +24,17 @@ const PreviewCarousel = () => {
     fetchMovies();
   }, []);
 
+  console.log(moviesList);
+
   const slideRight = (element: HTMLElement | null) => {
     if (!element) return;
-    const scrollAmount = window.innerWidth * 0.965;
+    const scrollAmount = window.innerWidth * 0.485;
     element.scrollBy({ left: scrollAmount, behavior: "smooth" });
   };
 
   const slideLeft = (element: HTMLElement | null) => {
     if (!element) return;
-    const scrollAmount = window.innerWidth * 0.965;
+    const scrollAmount = window.innerWidth * 0.485;
     element.scrollBy({ left: -scrollAmount, behavior: "smooth" });
   };
 
@@ -47,6 +50,7 @@ const PreviewCarousel = () => {
             position: "absolute",
             top: "50%",
             transform: "translateY(-50%)",
+            zIndex: 20,
           }}
           onClick={() => slideLeft(elemtRef.current)}
         />
@@ -54,7 +58,7 @@ const PreviewCarousel = () => {
           style={{
             display: "flex",
             gap: "10px",
-            overflowX: "auto",
+            overflow: "visible",
             scrollbarWidth: "none",
             msOverflowStyle: "none",
             scrollbarColor: "transparent transparent transparent transparent",
@@ -75,6 +79,7 @@ const PreviewCarousel = () => {
             top: "50%",
             transform: "translateY(-50%)",
             right: "0",
+            zIndex: 20,
           }}
           onClick={() => slideRight(elemtRef.current)}
         />

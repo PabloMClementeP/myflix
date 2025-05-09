@@ -60,7 +60,7 @@ const Header = () => {
       <HeaderRight>
         <CgSearch />
         <div>
-          <a href="">Niños</a>
+          <a href="">User</a>
         </div>
         <FaRegBell />
         <ProfileButton>

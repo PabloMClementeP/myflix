@@ -36,6 +36,17 @@ const MoviesService = {
       return null;
     }
   },
+  getByGenreIDMovies: async (id: number): Promise<Movie[] | null> => {
+    try {
+      const response = await tbdbInstance.get(
+        `/discover/movie?language=es-ES&with_genres=${id}`
+      );
+      return response.data.results || null;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  },
 };
 
 export default MoviesService;

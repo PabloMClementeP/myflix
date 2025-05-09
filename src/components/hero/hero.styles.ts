@@ -3,10 +3,9 @@ import styled from "styled-components";
 export const HeroWrapper = styled.div`
   width: 100%;
   height: fit-content;
-  max-height: 80dvh;
+  max-height: 90dvh;
   position: relative;
-  overflow: hidden;
-  top: -68px;
+  top: -100px;
 `;
 
 export const HeroImage = styled.img`

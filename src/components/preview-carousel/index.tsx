@@ -10,13 +10,17 @@ import getMoviesByGenre from "../../domain/use-cases/movies/get-by-genre";
 import { Navigation } from "swiper/modules";
 import { GoChevronLeft, GoChevronRight } from "react-icons/go";
 
-const PreviewCarousel = () => {
+interface PreviewCarouselProps {
+  carouselTitle: string;
+  genereId: number;
+}
+const PreviewCarousel = ({ carouselTitle, genereId }: PreviewCarouselProps) => {
   const [moviesList, setMoviesList] = useState<Movie[] | null>(null);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const res = await getMoviesByGenre(27);
+        const res = await getMoviesByGenre(genereId);
         if (!res) return;
         setMoviesList(res);
       } catch (error) {
@@ -30,7 +34,20 @@ const PreviewCarousel = () => {
 
   return (
     <CarouselWrapper>
-      <h3>Nuestra selección de hoy para ti</h3>
+      <h3
+        style={{
+          color: "#e5e5e5",
+          fontWeight: "500",
+          display: "table-cell",
+          fontSize: "1.4vw",
+          lineHeight: "1.25vw",
+          verticalAlign: "bottom",
+          margin: "0 0 10px",
+          padding: 0,
+        }}
+      >
+        {carouselTitle}
+      </h3>
       <Swiper
         modules={[Navigation]}
         navigation={{
@@ -62,9 +79,9 @@ const PreviewCarousel = () => {
             <RecomendedCard movie={movie} />
           </SwiperSlide>
         ))}
+        <GoChevronLeft size={40} className="swiper-button-prev-custom" />
+        <GoChevronRight size={40} className="swiper-button-next-custom" />
       </Swiper>
-      <GoChevronLeft size={40} className="swiper-button-prev-custom" />
-      <GoChevronRight size={40} className="swiper-button-next-custom" />
     </CarouselWrapper>
   );
 };

@@ -21,23 +21,23 @@ const MenuItems = [
   },
   {
     title: "Series",
-    path: "/about",
+    path: "/series",
   },
   {
     title: "Peliculas",
-    path: "/contact",
+    path: "/movies",
   },
   {
     title: "Novedades Populares",
-    path: "/contact",
+    path: "/popular",
   },
   {
     title: "Mi Lista",
-    path: "/contact",
+    path: "/list",
   },
   {
     title: "Explora por idiomas",
-    path: "/contact",
+    path: "/languages",
   },
 ];
 

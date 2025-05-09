@@ -1,14 +1,14 @@
 import "./App.css";
 import Header from "./components/header";
 import Hero from "./components/hero";
-import PreviewCarousel from "./components/preview-carousel";
+import Home from "./pages/home";
 
 function App() {
   return (
-    <div style={{ height: "2500px" }}>
+    <div style={{ overflowX: "hidden" }}>
       <Header />
       <Hero />
-      <PreviewCarousel />
+      <Home />
     </div>
   );
 }

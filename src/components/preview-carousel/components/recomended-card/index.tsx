@@ -1,4 +1,13 @@
-import { CardDetails, CardImage, CardWrapper } from "./recomended-card.styles";
+import {
+  CardDetails,
+  CardImage,
+  CardWrapper,
+  IconCircle,
+  IconWrapper,
+} from "./recomended-card.styles";
+import { FaPlay } from "react-icons/fa";
+import { FiPlus } from "react-icons/fi";
+import { BsHandThumbsUp } from "react-icons/bs";
 
 type RecomendedCardProps = {
   movie: {
@@ -18,6 +27,17 @@ const RecomendedCard = ({
         alt={title}
       />
       <CardDetails>
+        <IconWrapper>
+          <IconCircle>
+            <FaPlay />
+          </IconCircle>
+          <IconCircle>
+            <FiPlus />
+          </IconCircle>
+          <IconCircle>
+            <BsHandThumbsUp />
+          </IconCircle>
+        </IconWrapper>
         <h3>{title}</h3>
         <p>ID: {id}</p>
       </CardDetails>

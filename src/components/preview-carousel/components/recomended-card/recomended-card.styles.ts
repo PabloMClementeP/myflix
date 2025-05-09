@@ -1,16 +1,12 @@
 import styled from "styled-components";
 
 export const CardDetails = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: #000;
   color: white;
   padding: 0.75rem;
   border-radius: 0 0 4px 4px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease-in-out;
   pointer-events: none;
   text-align: center;
 
@@ -26,15 +22,13 @@ export const CardDetails = styled.div`
 `;
 
 export const CardWrapper = styled.div`
-  position: relative;
-  transition: transform 0.3s ease, z-index 0.3s ease;
-  flex: 0 0 auto;
-  width: 15.5dvw;
-  z-index: 1;
-  overflow: visible;
+  transition: transform 0.3s ease, z-index 0.3s ease-in-out;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
-    transform: scale(1.5);
+    transform: scale(1.5) translateY(-20px);
     z-index: 10;
   }
 
@@ -49,5 +43,8 @@ export const CardImage = styled.img`
   height: auto;
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: opacity 0.2s ease;
+
+  &:hover {
+    border-radius: 4px 4px 0 0;
+  }
 `;
